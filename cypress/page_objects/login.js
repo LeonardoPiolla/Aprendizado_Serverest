@@ -6,7 +6,7 @@ class LoginPage {
 
     // Cria a ação de login
     fazerLogin(email, password) {
-        cy.visit('https://front.serverest.dev/login');
+        cy.visit('/login'); // Agora usa a URL base do cypress.config.js
         this.email.type(email);
         this.password.type(password);
         this.botaoEntrar.click();

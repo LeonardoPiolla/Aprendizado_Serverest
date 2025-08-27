@@ -3,19 +3,19 @@ describe('API Tests', () => {
     let tokenAdmin; //token de um user admin
 
     before(() => {
-        //geração de dados exclusivos para o user admin
+        //gera dados para o novo user
         const now = Date.now();
         const novoAdmin = {
-            nome: `Admin Test ${now}`,
-            email: `admin${now}@test.com`,
-            password: 'test123',
+            nome: `User ${now}`,
+            email: `user${now}@test.com`,
+            password: Cypress.env('ADMIN_PASSWORD'), 
             administrador: 'true'
         };
 
         //cria o user admin
         cy.request({
             method: 'POST',
-            url: 'https://serverest.dev/usuarios',
+            url: Cypress.env('API_URL') + '/usuarios', 
             body: novoAdmin
         }).then((response) => {
             expect(response.status).to.equal(201);
@@ -23,10 +23,11 @@ describe('API Tests', () => {
             //login com o novo user para salvar o token
             cy.request({
                 method: 'POST',
-                url: 'https://serverest.dev/login',
+                url: Cypress.env('API_URL') + '/login',
                 body: {
                     email: novoAdmin.email,
-                    password: novoAdmin.password
+                    // Usa a senha do .env aqui
+                    password: Cypress.env('ADMIN_PASSWORD') 
                 }
             }).then((loginResponse) => {
                 expect(loginResponse.status).to.equal(200);
@@ -38,7 +39,7 @@ describe('API Tests', () => {
     it('Listagem dos itens cadastrados', () => {
         cy.request({
             method: 'GET',
-            url: 'https://serverest.dev/produtos'
+            url: Cypress.env('API_URL') + '/produtos'
         }).then((response) => {
             expect(response.status).to.equal(200);
             expect(response.body.quantidade).to.be.greaterThan(0);
@@ -54,10 +55,9 @@ describe('API Tests', () => {
             quantidade: 12
         };
 
-        //Token salvo será utilizado para a requisição
         cy.request({
             method: 'POST',
-            url: 'https://serverest.dev/produtos',
+            url: Cypress.env('API_URL') + '/produtos',
             headers: { Authorization: tokenAdmin },
             body: novoProduto
         }).then((response) => {
@@ -67,14 +67,12 @@ describe('API Tests', () => {
     });
 
     it('Procurar produto por ID', () => {
-        //lista todos os produtos e busca um ID
-        cy.request('GET', 'https://serverest.dev/produtos').then((response) => {
+        cy.request('GET', Cypress.env('API_URL') + '/produtos').then((response) => {
             const produtoId = response.body.produtos[0]._id;
             
-            //utiliza o ID para buscar o produto
             cy.request({
                 method: 'GET',
-                url: `https://serverest.dev/produtos/${produtoId}`
+                url: `${Cypress.env('API_URL')}/produtos/${produtoId}`
             }).then((respostaProduto) => {
                 expect(respostaProduto.status).to.equal(200);
                 expect(respostaProduto.body._id).to.equal(produtoId);
