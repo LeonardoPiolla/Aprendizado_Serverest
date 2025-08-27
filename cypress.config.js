@@ -9,7 +9,7 @@ module.exports = defineConfig({
     env: {
       ADMIN_EMAIL: process.env.ADMIN_EMAIL,
       ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
-      API_URL: process.env.API_URL, // Adicione esta linha
+      API_URL: process.env.API_URL,
     },
     setupNodeEvents(on, config) {
       // implement node event listeners here
