@@ -1,6 +1,9 @@
-# Desafio NTTDATA
+# Aprendizado e Treinamento com Cypress, utilizando o SERVEREST
 
-## tecnologias
+- **Frontend:** https://front.serverest.dev/
+- **Swagger API:** https://serverest.dev/
+
+## Tecnologias
 
 - **Cypress**
 - **Node.js**
@@ -11,7 +14,7 @@
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/LeonardoPiolla/desafioTecnico_NTTDATA.git](https://github.com/LeonardoPiolla/desafioTecnico_NTTDATA.git)
+    git clone [https://github.com/LeonardoPiolla/Aprendizado_Serverest.git](https://github.com/LeonardoPiolla/Aprendizado_Serverest.git)
     ```
 
 2.  **Instale as dependências:**
