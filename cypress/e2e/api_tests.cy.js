@@ -3,7 +3,7 @@ describe('API Tests', () => {
     let tokenAdmin; //token de um user admin
 
     before(() => {
-        //gera dados para o novo user
+        //gera dados para o novo user, entao sempre que rodar o teste, ele nao duplicara
         const now = Date.now();
         const novoAdmin = {
             nome: `User ${now}`,
