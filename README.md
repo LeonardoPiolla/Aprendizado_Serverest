@@ -1,32 +1,32 @@
-# Aprendizado e Treinamento com Cypress, utilizando o SERVEREST
+# Learning and Training Cypress using SERVEREST
 
 - **Frontend:** https://front.serverest.dev/
 - **Swagger API:** https://serverest.dev/
 
-## Tecnologias
+## Tecnologies
 
 - **Cypress**
 - **Node.js**
 - **Git/GitHub**
 - **Visual Studio Code**
 
-## Para Rodar os Testes
+## To Run the Tests
 
-1.  **Clone o repositório:**
+1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/LeonardoPiolla/Aprendizado_Serverest.git](https://github.com/LeonardoPiolla/Aprendizado_Serverest.git)
+    git clone [https://github.com/LeonardoPiolla/LearningWithServerest.git](https://github.com/LeonardoPiolla/LearningWithServerest.git)
     ```
 
-2.  **Instale as dependências:**
-    Acesse a pasta do projeto e instale as dependências com o comando:
+2.  **Install the dependencies:**
+    Access project's folder and install the dependencies using the command:
     ```bash
     npm install
     ```
 
-3.  **Execute os testes:**
-    Para abrir a interface do Cypress e rodar os testes, utilize o comando:
+3.  **Execute the tests:**
+    To open Cypress' interface and run the tests, use the command:
     ```bash
     npx cypress open
     ```
-    - Escolha a opção "E2E Testing".
-    - Selecione o arquivo de teste.
+    - Choose the option "E2E Testing".
+    - Select the test file.
